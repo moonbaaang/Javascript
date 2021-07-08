@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="console.log('click')">HTML Tag 속성에 event handler 추가하기</h1>
+    <input type="text" onchange="console.log('changed')" onkeydown="console.log('typeid')">
+    <form method="GET" action="b.html" id="form1"
+    onsubmit="console.log('from tag'); return false;">
+
+        이름 : <input type="text" name="id"><br>
+        메시지 : <input type=text name=msg><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        var t = document.getElementById("form1")
+        t.onsubmit = function a(){
+            console.log("from property");
+            return false;
+        }
+
+        function b(){
+            console.log("from addEventListener B");
+            return false;
+        }
+        
+        function c(){
+            console.log("from addEventListener C");
+            return false;
+        }
+
+        t.addEventListener("submit", b)
+        t.addEventListener("submit", c)
+
+        t.removeEventListener("submit", b)
+        
+    </script>
+</body>
+</html>
