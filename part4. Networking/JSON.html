@@ -9,4 +9,38 @@
 <body>
     JSON
 </body>
+<script>
+    var pi = 3.14
+    var str = "String"
+    JSON.stringify(str)
+    JSON.stringify(pi)
+
+    JSON.parse("3.14")
+    JSON.parse("\"String\"")
+
+    var arr = ["문자열", 3.14, true, null, undefined, function a(){console.log("method")}]
+    var t = JSON.stringify(arr)
+    // "[\"문자열\",3.14,true,null,null,null]" > 메소드나 undefined는 변환되지 않음
+    var obj = {
+        "str":"문자열",
+        "num": 3.14,
+        "boolean" : true,
+        "nul":null,
+        "undefined":undefined,
+        "method":function a(){console.log("method")}
+    }
+    var t2 = JSON.stringify(obj)
+    console.log(t2)
+    console.log(JSON.parse(t2))
+
+    var original_obj = { pi:3.14, str:"string" };
+
+    var json_str = JSON.stringify( original_obj );
+    // 반환 문자열 : {"pi":3.14,"str":"string"}
+
+    var parsed_obj = JSON.parse( json_str );
+
+    console.log( original_obj ); // {pi: 3.14, str: "string"}
+    console.log( parsed_obj ); // {pi: 3.14, str: "string"} 
+</script>
 </html>
